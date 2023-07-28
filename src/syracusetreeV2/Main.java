@@ -4,7 +4,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Arbre arbre = new Arbre(1564211);
+		Arbre arbre;
+		arbre = new Arbre(150);
 
 		arbre.affichageArbre();
 
