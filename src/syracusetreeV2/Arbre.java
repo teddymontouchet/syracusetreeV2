@@ -11,14 +11,13 @@ public class Arbre {
 
 	private int nombreMax = nombreDepart;
 
-	private List<Integer> arbre;
+	private List<Noeud> arbre;
 
 	public Arbre(int nombreDepart) {
 		this.nombreDepart = nombreDepart;
-		this.nombreNoeud = 0;
-		this.arbre = new ArrayList<Integer>();
-		this.arbre.add(nombreDepart);
-		generationArbre(getArbre());
+		this.nombreNoeud = Noeud.nombreNoeud;
+		this.arbre = new ArrayList<Noeud>();
+		generationArbre(this.arbre);
 	}
 
 	public void nombreNoeud() {
@@ -33,22 +32,23 @@ public class Arbre {
 		System.out.println("Le nombre maximum atteint est de : " + nombreMax);
 	}
 
-	private void generationArbre(List<Integer> arbre) {
-		int nombre = arbre.get(0);
+	private void generationArbre(List<Noeud> arbre) {
+		this.arbre.add(new Noeud(nombreDepart));
+		int nombre = arbre.get(0).getNombre();
 		while (nombre != 1) {
 			if (nombre % 2 == 0) {
 				nombre = nombre / 2;
-				arbre.add(nombre);
+				arbre.add(new Noeud(nombre));
 			} else if (nombre % 2 == 1) {
 				nombre = nombre * 3 + 1;
-				arbre.add(nombre);
+				arbre.add(new Noeud(nombre));
 			}
 			this.nombreNoeud++;
 			this.nombreMax = (nombre > nombreMax) ? nombre : nombreMax;
 		}
 	}
 
-	public List<Integer> getArbre() {
+	public List<Noeud> getArbre() {
 		return arbre;
 	}
 

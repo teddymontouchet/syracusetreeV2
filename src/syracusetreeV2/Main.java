@@ -5,8 +5,8 @@ public class Main {
 	public static void main(String[] args) {
 
 		Arbre arbre = new Arbre(156421);
-		for (Integer i : arbre.getArbre()) {
-			System.out.print((i != 1) ? i + " -> " : i + "\n");
+		for (Noeud i : arbre.getArbre()) {
+			System.out.print((i.getNombre() != 1) ? i.getNombre() + " -> " : i.getNombre() + "\n");
 		}
 
 		arbre.nombreNoeud();
