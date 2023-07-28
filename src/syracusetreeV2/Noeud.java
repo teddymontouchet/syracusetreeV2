@@ -6,12 +6,9 @@ public class Noeud {
 
 	private int nombre;
 
-	// private int poids;
-
 	public Noeud(int nombre) {
 
 		this.setNombre(nombre);
-		// this.poids = poids;
 	}
 
 	public int getNombre() {

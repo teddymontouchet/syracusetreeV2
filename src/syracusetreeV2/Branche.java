@@ -5,11 +5,9 @@ import java.util.List;
 
 public class Branche {
 
-	static int nombreBranche;
+	public static int nombreBranche;
 
-	static int nombreMax;
-
-	int nombreDepart;
+	public static int nombreMax = 0;
 
 	private List<Noeud> branche;
 
@@ -17,7 +15,7 @@ public class Branche {
 
 		this.branche = new ArrayList<Noeud>();
 
-		this.nombreDepart = nombreDepart;
+		Arbre.nombreDepart = nombreDepart;
 
 		generationBranche(nombreDepart);
 	}

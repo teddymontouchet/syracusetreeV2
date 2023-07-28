@@ -5,16 +5,14 @@ import java.util.List;
 
 public class Arbre {
 
-	private int nombreDepart;
-
-	private int nombreMax = nombreDepart;
+	public static int nombreDepart;
 
 	private List<Branche> arbre;
 
 	public Arbre(int nombreDepart) {
-		this.nombreDepart = nombreDepart;
+		Arbre.nombreDepart = nombreDepart;
 		this.arbre = new ArrayList<Branche>();
-		generationArbre(this.arbre);
+		this.arbre.add(new Branche(nombreDepart));
 	}
 
 	public void nombreNoeud() {
@@ -29,19 +27,16 @@ public class Arbre {
 		System.out.println("Le nombre maximum atteint est de : " + Branche.nombreMax);
 	}
 
-	private void generationArbre(List<Branche> arbre) {
-		this.arbre.add(new Branche(nombreDepart));
-		/*
-		 * int nombre = arbre.get(0).getNombre(); while (nombre != 1) { if (nombre % 2
-		 * == 0) { nombre = nombre / 2; arbre.add(new Noeud(nombre)); } else if (nombre
-		 * % 2 == 1) { nombre = nombre * 3 + 1; arbre.add(new Noeud(nombre)); }
-		 * Noeud.nombreNoeud++; this.nombreMax = (nombre > nombreMax) ? nombre :
-		 * nombreMax; }
-		 */
-	}
-
 	public List<Branche> getArbre() {
 		return arbre;
+	}
+
+	public void affichageArbre() {
+		for (Branche i : arbre) {
+			for (Noeud j : arbre.get(0).getBranche()) {
+				System.out.print((j.getNombre() != 1) ? j.getNombre() + " -> " : j.getNombre() + "\n");
+			}
+		}
 	}
 
 }
