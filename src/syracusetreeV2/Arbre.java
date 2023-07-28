@@ -37,6 +37,9 @@ public class Arbre {
 				System.out.print((j.getNombre() != 1) ? j.getNombre() + " -> " : j.getNombre() + "\n");
 			}
 		}
+		nombreNoeud();
+		nombreDepart();
+		nombreMax();
 	}
 
 }

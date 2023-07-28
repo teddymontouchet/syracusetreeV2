@@ -7,8 +7,6 @@ public class Main {
 		Arbre arbre = new Arbre(156421);
 
 		arbre.affichageArbre();
-		arbre.nombreNoeud();
-		arbre.nombreDepart();
-		arbre.nombreMax();
+
 	}
 }
