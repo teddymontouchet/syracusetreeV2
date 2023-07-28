@@ -15,15 +15,15 @@ public class Arbre {
 		this.arbre.add(new Branche(nombreDepart));
 	}
 
-	public void nombreNoeud() {
+	private void nombreNoeud() {
 		System.out.println("Le nombre de noeud est de : " + Noeud.nombreNoeud);
 	}
 
-	public void nombreDepart() {
+	private void nombreDepart() {
 		System.out.println("Le nombre de départ était : " + nombreDepart);
 	}
 
-	public void nombreMax() {
+	private void nombreMax() {
 		System.out.println("Le nombre maximum atteint est de : " + Branche.nombreMax);
 	}
 
@@ -31,10 +31,23 @@ public class Arbre {
 		return arbre;
 	}
 
+	private String espace(int nombre) {
+		String espace = "";
+		for (int i = 0; i < nombre / 2; i++) {
+			espace += " ";
+		}
+
+		return espace;
+	}
+
 	public void affichageArbre() {
 		for (Branche i : arbre) {
 			for (Noeud j : arbre.get(0).getBranche()) {
-				System.out.print((j.getNombre() != 1) ? j.getNombre() + " -> " : j.getNombre() + "\n");
+				System.out.print(espace(Math.abs(
+						Integer.toString(j.getNombre()).length() - Integer.toString(Arbre.nombreDepart).length())));
+				System.out.println((j.getNombre() != 1)
+						? j.getNombre() + "\n" + espace(Math.abs(Integer.toString(Arbre.nombreDepart).length())) + "|"
+						: j.getNombre() + "\n");
 			}
 		}
 		nombreNoeud();
