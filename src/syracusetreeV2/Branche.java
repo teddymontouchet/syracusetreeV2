@@ -1,18 +1,21 @@
 package syracusetreeV2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Branche {
 
 	static int nombreBranche;
 
-	int nombreDepart;
+	static int nombreMax;
 
-	int nombreMax;
+	int nombreDepart;
 
 	private List<Noeud> branche;
 
 	public Branche(int nombreDepart) {
+
+		this.branche = new ArrayList<Noeud>();
 
 		this.nombreDepart = nombreDepart;
 
@@ -32,8 +35,12 @@ public class Branche {
 				branche.add(new Noeud(nombre));
 			}
 			Noeud.nombreNoeud++;
-			this.nombreMax = (nombre > nombreMax) ? nombre : nombreMax;
+			Branche.nombreMax = (nombre > nombreMax) ? nombre : nombreMax;
 		}
 
+	}
+
+	public List<Noeud> getBranche() {
+		return branche;
 	}
 }
