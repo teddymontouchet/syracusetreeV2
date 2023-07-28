@@ -5,8 +5,6 @@ import java.util.List;
 
 public class Arbre {
 
-	private int nombreNoeud;
-
 	private int nombreDepart;
 
 	private int nombreMax = nombreDepart;
@@ -15,13 +13,12 @@ public class Arbre {
 
 	public Arbre(int nombreDepart) {
 		this.nombreDepart = nombreDepart;
-		this.nombreNoeud = Noeud.nombreNoeud;
 		this.arbre = new ArrayList<Noeud>();
 		generationArbre(this.arbre);
 	}
 
 	public void nombreNoeud() {
-		System.out.println("Le nombre de noeud est de : " + nombreNoeud);
+		System.out.println("Le nombre de noeud est de : " + Noeud.nombreNoeud);
 	}
 
 	public void nombreDepart() {
@@ -43,7 +40,7 @@ public class Arbre {
 				nombre = nombre * 3 + 1;
 				arbre.add(new Noeud(nombre));
 			}
-			this.nombreNoeud++;
+			Noeud.nombreNoeud++;
 			this.nombreMax = (nombre > nombreMax) ? nombre : nombreMax;
 		}
 	}
